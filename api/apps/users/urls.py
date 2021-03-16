@@ -1,9 +1,13 @@
-# from django.urls import path, include
-# from rest_framework import routes
+from django.urls import path, include
+from rest_framework import routers
 
-# router = routes.DefaultRouter()
-# # router.register('', UserViewSet)
+from .views import (
+    UserViewSet
+)
 
-# urlpatterns = [
-#     path('', include(router.urls)),
-# ]
+router = routers.DefaultRouter()
+router.register('', UserViewSet)
+
+urlpatterns = [
+    path('', include(router.urls)),
+]
